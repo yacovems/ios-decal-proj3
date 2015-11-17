@@ -122,6 +122,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="WRK-xo-Avs">
+                                <rect key="frame" x="184" y="423" width="120" height="128"/>
+                                <animations/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cs1-UZ-WFZ">
                                 <rect key="frame" x="62" y="64" width="476" height="248"/>
                                 <animations/>
@@ -151,4 +155,7 @@
             <point key="canvasLocation" x="3638" y="-888"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="download" width="225" height="225"/>
+    </resources>
 </document>
