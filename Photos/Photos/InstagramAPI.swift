@@ -22,28 +22,21 @@ class InstagramAPI {
          *       c. For each NSDictionary, create a Photo object, and add to Photos array
          *       d. Wait for completion of Photos array
          */
-        // FILL ME IN
-        var url = Utils.getPopularURL()
+        let url = Utils.getPopularURL()
+        
         let task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {
             (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+            
             if error == nil {
-                //FIX ME
-                
                 var photos = [Photo]()
                 
                 do {
                     let feedDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    let data_array = feedDictionary.valueForKey("data") as! NSArray
                     
-                    
-                    //print(feedDictionary.valueForKey("data") as! NSArray)
-                    // FILL ME IN, REMEMBER TO USE FORCED DOWNCASTING
-                    
-                    var arr = feedDictionary.valueForKey("data") as! NSArray
-                    for dict in arr{
-                        //                        print(photos)
-                        var newPhoto = Photo(data: dict as! NSDictionary)
-                        photos.append(newPhoto)
-                        
+                    for data in data_array{
+                        let photo = Photo(data: data as! NSDictionary)
+                        photos.append(photo)
                     }
                     
                     // DO NOT CHANGE BELOW
@@ -53,10 +46,11 @@ class InstagramAPI {
                             completion(photos)
                         }
                     }
-                } catch let error as NSError {
+                }
+                catch let error as NSError {
                     print("ERROR: \(error.localizedDescription)")
                 }
-            } //end of if statement
+            }
         })
         task.resume()
     }
